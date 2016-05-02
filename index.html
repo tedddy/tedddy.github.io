@@ -1,0 +1,29 @@
+---
+layout: page
+title: SciViews - Reproductible research with R
+excerpt: "SciViews: open source software for using the R language and environment in a reproductible research context."
+image:
+  feature: banner-1.jpg
+  credit: ra2 studio (fotolia)
+  creditlink: https://fr.fotolia.com/id/71779546
+search_omit: true
+---
+
+<p class="entry-content">SciViews provides a series of open source software to supplement <b><a href="http://www.r-project.org">R</a></b>, for statistical computing in a reproductive workflow</a>. The <b>SciViews Box</b> is a completely configured virtual machine that powers scientific processing in a reproducible software environment. Several <b>R packages</b> extend and enhance R. <b>Plugins and custom settings</b> for R Studio, Komodo Edit/IDE, LyX and Github ease and streamline your work. See the <a href="/about/">about page</a> to read more about SciViews...</p>
+
+<center><h1>Latest Posts</h1></center>
+
+{% if site.teaser %} <!-- Tiles or list depending on site.teaser -->
+<div class="tiles"> <!-- Either use tiles -->
+{% for post in site.posts limit:6 %}
+	{% include post-grid.html %}
+{% endfor %}
+</div>
+{% else %}
+<ul class="post-list">  <!-- or use a list -->
+{% for post in site.posts limit:6 %}
+  {% assign year = post.date | date: "%Y" | plus: 0 %}
+  <li><article><a href="{{ site.url }}{{ post.url }}"><b>{{ post.title }}</b> {% if year > 2000 %}<span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time></span>{% endif %}{% if post.excerpt %} <span class="excerpt">{{ post.excerpt }}</span>{% endif %}</a></article></li>
+{% endfor %}
+</ul>
+{% endif %}
